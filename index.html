@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NeuralCanvas | Generative AI & Particle Physics Studio by Khushi</title>
+  <meta name="description" content="Interactive generative particle art and mathematical physics sandbox engineered by Khushi. Create neon flow fields, magnetic gravity wells, and export digital art.">
+  <meta name="author" content="Khushi">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <canvas id="art-canvas"></canvas>
+
+  <!-- Studio Header Overlay -->
+  <header class="studio-header">
+    <div class="brand">
+      <span class="brand-icon"><i class="fa-solid fa-atom fa-spin" style="--fa-animation-duration: 12s;"></i></span>
+      <div>
+        <h1 class="brand-title">Neural<span class="text-accent">Canvas</span></h1>
+        <p class="brand-subtitle">Generative Physics &amp; Particle Art Engine • By <a href="https://portfolio-nine-alpha-m0jhu0c4o1.vercel.app" target="_blank" class="dev-link">Khushi</a></p>
+      </div>
+    </div>
+
+    <div class="header-actions">
+      <button id="clear-btn" class="btn btn-secondary"><i class="fa-solid fa-trash-can"></i> Clear</button>
+      <button id="random-btn" class="btn btn-secondary"><i class="fa-solid fa-shuffle"></i> Randomize</button>
+      <button id="export-btn" class="btn btn-primary"><i class="fa-solid fa-download"></i> Export Artwork</button>
+    </div>
+  </header>
+
+  <!-- Interactive Control Deck (Glassmorphic) -->
+  <aside class="control-panel">
+    <div class="panel-header">
+      <i class="fa-solid fa-sliders text-accent"></i>
+      <span>Physics &amp; Flow Controls</span>
+    </div>
+
+    <!-- Mode Selector -->
+    <div class="control-group">
+      <label class="control-label">Simulation Mode</label>
+      <div class="mode-grid">
+        <button class="mode-btn active" data-mode="flow">Flow Field</button>
+        <button class="mode-btn" data-mode="gravity">Gravity Well</button>
+        <button class="mode-btn" data-mode="vortex">Vortex</button>
+        <button class="mode-btn" data-mode="neural">Neural Mesh</button>
+      </div>
+    </div>
+
+    <!-- Color Palette -->
+    <div class="control-group">
+      <label class="control-label">Neon Palette</label>
+      <div class="palette-options">
+        <button class="pal-btn active" data-pal="cyber" style="--p1: #00f5d4; --p2: #7928ca;" title="Cyber Neon"></button>
+        <button class="pal-btn" data-pal="sunset" style="--p1: #ff007f; --p2: #ffbe0b;" title="Electric Sunset"></button>
+        <button class="pal-btn" data-pal="aurora" style="--p1: #10b981; --p2: #06b6d4;" title="Aurora Borealis"></button>
+        <button class="pal-btn" data-pal="plasma" style="--p1: #f43f5e; --p2: #8b5cf6;" title="Cosmic Plasma"></button>
+      </div>
+    </div>
+
+    <!-- Particle Sliders -->
+    <div class="control-group">
+      <div class="slider-header">
+        <span>Particle Density</span>
+        <span id="val-count" class="val-badge">1200</span>
+      </div>
+      <input type="range" id="slider-count" min="300" max="3000" step="100" value="1200" class="styled-range">
+    </div>
+
+    <div class="control-group">
+      <div class="slider-header">
+        <span>Kinetic Speed</span>
+        <span id="val-speed" class="val-badge">1.8</span>
+      </div>
+      <input type="range" id="slider-speed" min="0.5" max="4.5" step="0.1" value="1.8" class="styled-range">
+    </div>
+
+    <div class="control-group">
+      <div class="slider-header">
+        <span>Trail Persistence</span>
+        <span id="val-fade" class="val-badge">0.05</span>
+      </div>
+      <input type="range" id="slider-fade" min="0.01" max="0.25" step="0.01" value="0.05" class="styled-range">
+    </div>
+
+    <!-- Footer Status -->
+    <div class="panel-footer">
+      <div class="live-stats">
+        <span>FPS: <strong id="fps-counter" class="text-accent">60</strong></span>
+        <span>Particles: <strong id="active-particles" class="text-accent">1200</strong></span>
+      </div>
+      <div class="hint-text"><i class="fa-solid fa-hand-pointer"></i> Click &amp; Drag to warp physics field</div>
+    </div>
+  </aside>
+
+  <script src="script.js"></script>
+</body>
+</html>
